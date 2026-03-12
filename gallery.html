@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Gallery</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            background: #fcf9f2; /* Dominant 60% (Cream) */
+            color: #222;
+        }
+
+        /* ── HEADER ── */
+        header {
+            background: #3c4a3e; /* Secondary 30% (Forest Green) */
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+        }
+        header h1 {
+            font-size: 16px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* ── NAV ── */
+        nav {
+            background: #3c4a3e; /* Secondary 30% (Forest Green) */
+            text-align: center;
+            padding: 5px 0;
+        }
+        nav ul {
+            list-style: none;
+            display: inline-flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 11px;
+            padding: 4px 8px;
+            transition: background-color 0.3s ease, font-size 0.3s ease;
+        }
+        nav ul li a:hover {
+            text-decoration: none;
+            background-color: #e07a5f; /* Accent 10% (Terracotta) */
+            font-size: 13px;
+        }
+
+        /* ── MAIN ── */
+        main {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px 10px;
+        }
+
+        /* ── SECTIONS ── */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        section {
+            margin-bottom: 0;
+            padding-bottom: 20px;
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        section + section {
+            padding-top: 16px;
+        }
+        section + section::before {
+            content: '';
+            display: block;
+            width: 100vw;
+            margin-left: calc(-50vw + 50%);
+            border-top: 2px solid #a3b1a6; /* Muted Secondary */
+            margin-bottom: 16px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #222;
+        }
+
+        /* ── GALLERY LAYOUT ── */
+        .gallery-row {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-center {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 10px;
+        }
+
+        figure {
+            width: 180px;
+            border: 1px solid #3c4a3e; /* Secondary 30% (Forest Green) */
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        figure img {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        figure:hover img {
+            transform: scale(1.08);
+        }
+
+        figcaption {
+            background: #fff;
+            border-top: 1px solid #3c4a3e; /* Secondary 30% (Forest Green) */
+            font-size: 9.5px;
+            color: #333;
+            text-align: center;
+            padding: 4px 4px;
+            line-height: 1.3;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ── CONTACT FORM ── */
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        form label {
+            width: 260px;
+            font-size: 11px;
+            color: #222;
+            margin-bottom: -2px;
+            text-align: center;
+        }
+
+        form input,
+        form textarea {
+            width: 260px;
+            padding: 4px 6px;
+            border: 1px solid #a3b1a6; /* Muted Secondary */
+            font-size: 11px;
+            font-family: Arial, sans-serif;
+            background: #fff;
+        }
+
+        form textarea { height: 60px; resize: vertical; }
+
+        form button {
+            background: #e07a5f; /* Accent 10% (Terracotta) */
+            color: #fff;
+            border: none;
+            padding: 5px 22px;
+            font-size: 11px;
+            cursor: pointer;
+            margin-top: 4px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        form button:hover { 
+            background: #d0664a;
+            transform: scale(1.05);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            background: #3c4a3e; /* Secondary 30% (Forest Green) */
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shear Jabez S. Llave - BSCS Y1-2</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#featured">Featured Products</a></li>
+            <li><a href="#sales">Sales Gallery</a></li>
+            <li><a href="#regular">Regular Gallery</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <!-- Featured Products -->
+        <section id="featured">
+            <h2>Featured Products</h2>
+
+            <div class="gallery-row">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=360&h=280&fit=crop&auto=format"
+                         alt="Silver wristwatch on white background">
+                    <figcaption>Silver Wristwatch - Best Seller</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=360&h=280&fit=crop&auto=format"
+                         alt="Glass perfume bottle with golden cap">
+                    <figcaption>Glass Perfume Bottle - New Arrival</figcaption>
+                </figure>
+            </div>
+
+            <div class="gallery-center">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=360&h=280&fit=crop&auto=format"
+                         alt="Red Nike running shoe on white background">
+                    <figcaption>Red Nike Running Shoe - Limited Edition</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Sales Gallery -->
+        <section id="sales">
+            <h2>Sales Gallery</h2>
+
+            <div class="gallery-row">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=360&h=280&fit=crop&auto=format"
+                         alt="Polaroid instant camera with printed photos">
+                    <figcaption>Polaroid Instant Camera - 50% Off</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=360&h=280&fit=crop&auto=format"
+                         alt="Gold wireless over-ear headphones on a surface">
+                    <figcaption>Gold Wireless Headphones - Buy 1 Get 1</figcaption>
+                </figure>
+            </div>
+
+            <div class="gallery-center">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=360&h=280&fit=crop&auto=format"
+                         alt="Dark frame designer sunglasses on white background">
+                    <figcaption>Dark Frame Sunglasses - Special Discount</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Regular Gallery -->
+        <section id="regular">
+            <h2>Gallery</h2>
+
+            <div class="gallery-row">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1549298916-b41d501d3772?w=360&h=280&fit=crop&auto=format"
+                         alt="White low-top sneakers on a clean surface">
+                    <figcaption>White Low-Top Sneakers</figcaption>
+                </figure>
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=360&h=280&fit=crop&auto=format"
+                         alt="Brown leather shoulder handbag">
+                    <figcaption>Brown Leather Shoulder Bag</figcaption>
+                </figure>
+            </div>
+
+            <div class="gallery-center">
+                <figure>
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?w=360&h=280&fit=crop&auto=format"
+                         alt="Smartwatch displaying time on a wrist">
+                    <figcaption>Smartwatch with Display Screen</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Contact Form -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form action="#">
+                <label for="name">Full Name</label>
+                <input type="text"  id="name"    name="name"    required>
+
+                <label for="email">Email Address</label>
+                <input type="email" id="email"   name="email"   required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel"   id="phone"   name="phone">
+
+                <label for="subject">Subject</label>
+                <input type="text"  id="subject" name="subject" required>
+
+                <label for="message">Your Concern</label>
+                <textarea           id="message" name="message" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Product Gallery</p>
+    </footer>
+
+</body>
+</html>
